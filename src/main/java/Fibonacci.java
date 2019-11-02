@@ -8,6 +8,9 @@ public class Fibonacci {
 		int onenumberDown = 0;
 		int currentNumber = 1;
 
+		System.out.println(onenumberDown);
+		System.out.println(currentNumber);
+		
 		if (number == 0) {
 			return 0;
 		}
@@ -16,37 +19,44 @@ public class Fibonacci {
 			twonumbersDown = onenumberDown;
 			onenumberDown = currentNumber;
 			currentNumber = twonumbersDown + onenumberDown;
+			System.out.println(currentNumber);
 		}
-
 		return currentNumber;
 	}
 
+	
 	public static int recursiveFibonacci(int number) {
 
+		
 		if (number <= 1) {
 			return number;
 		}
-
-		return recursiveFibonacci(number - 1) + recursiveFibonacci(number - 2);
+		
+		int result = recursiveFibonacci(number - 1) + recursiveFibonacci(number - 2);
+		return result;
+	}
+	
+	public static void printFibonacciRecursive(int number) {
+		for(int i = 0; i <= number; i++) {
+			System.out.println(recursiveFibonacci(i));
+		}
 	}
 
 	public static void main(String args[]) {
 
 		// Iterative
-		System.out.println(iteraticeFibonacci(0)); // prints 0
-		System.out.println(iteraticeFibonacci(1)); // prints 1
-		System.out.println(iteraticeFibonacci(7)); // prints 13
-		System.out.println(iteraticeFibonacci(10)); // prints 55
-		System.out.println(iteraticeFibonacci(20)); // prints 6765
-		System.out.println(iteraticeFibonacci(40)); // prints 102334155
+		iteraticeFibonacci(0); // prints 0
+		iteraticeFibonacci(1); // prints 0, 1
+		iteraticeFibonacci(7); // prints 0, 1, 1, 2, 3, 5, 8, 13
+		iteraticeFibonacci(10); // prints 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
+		iteraticeFibonacci(20); // prints 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765
 
 		// Recursive
-		System.out.println(recursiveFibonacci(0)); // prints 0
-		System.out.println(recursiveFibonacci(1)); // prints 1
-		System.out.println(recursiveFibonacci(7)); // prints 13
-		System.out.println(recursiveFibonacci(10)); // prints 55
-		System.out.println(recursiveFibonacci(20)); // prints 6765
-		System.out.println(recursiveFibonacci(40)); // prints 102334155
+		printFibonacciRecursive(0); // prints 0
+		printFibonacciRecursive(1); // prints 0, 1
+		printFibonacciRecursive(7); // prints 0, 1, 1, 2, 3, 5, 8, 13
+		printFibonacciRecursive(10); // prints 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
+		printFibonacciRecursive(20); // prints 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765
 
 	}
 
